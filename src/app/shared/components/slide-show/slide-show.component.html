@@ -1,0 +1,18 @@
+<div class="swiper">
+    <div class="swiper-wrapper">
+        <div *ngFor="let movie of movies"
+            class="swiper-slide cursor"
+            [ngStyle]="{
+                'background-size': 'cover',
+                'background-image': 'url(https://image.tmdb.org/t/p/w500'+ movie.backdrop_path +')'
+            }">
+            <div class="movie-description">
+                <h4 class="mt-2">{{ movie.title }}</h4>
+                <p>{{ movie.overview | readmore }} <a (click)="onMovieClick(movie)"  class="btn-readmore cursor">Read more</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div (click)="onSliderPrev()" class="swiper-button-prev"></div>
+    <div (click)="onSliderNext()" class="swiper-button-next"></div>
+</div>

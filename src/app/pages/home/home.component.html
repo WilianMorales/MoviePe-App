@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="row mt-4" *ngIf="movie.length > 0">
+    <div class="col">
+        <app-slide-show [movies]="moviesSlideShow"></app-slide-show>
+    </div>
+</div>
+
+<h1 class="title-movie mt-4 mb-3">Peliculas</h1>
+
+<app-movie-card-grid *ngIf="movie.length > 0" [movies]="movie"></app-movie-card-grid>
