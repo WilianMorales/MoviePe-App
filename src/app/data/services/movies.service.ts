@@ -25,6 +25,10 @@ export class MoviesService {
     }
   }
 
+  resetMoviePage(): void {
+    this.moviePage = 1;
+  }
+
   getMovies(): Observable<Movie[]> {
 
     if (this.cargando) {
