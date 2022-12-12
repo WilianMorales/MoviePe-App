@@ -1,1 +1,9 @@
-<p>search works!</p>
+<h1 class="title-search mt-4">Resultados de Películas para <small class="text-capitalize"> "{{texto}}" </small></h1>
+<div class="sub-title">Se han encontrado <span>16 películas</span></div>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-movie-card-grid [movies]="movies"></app-movie-card-grid>
+    </div>
+</div>

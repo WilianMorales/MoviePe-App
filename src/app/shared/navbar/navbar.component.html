@@ -8,14 +8,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
         </ul>
-        <div class="d-flex">
-            <form class="form-inline my-2 my-lg-">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar una película" aria-label="Search">
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
+        <div class="d-flex form-inline my-2 my-lg-">
+            <input #txtBuscar
+                (keyup.enter)="searchMovie(txtBuscar.value)"
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Buscar película"
+                aria-label="Search">
+            <button (click)="searchMovie(txtBuscar.value)"
+                class="btn btn-outline-danger my-2 my-sm-0 btn-mobile-lg"
+                type="submit">Buscar</button>
         </div>
     </div>
 </nav>
