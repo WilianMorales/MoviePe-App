@@ -1,1 +1,63 @@
-<p>movie works!</p>
+
+<div class="movie-info" *ngIf="movie">
+    <div class="container">
+        <div class="movie-container">
+            <div class="movie-info__container">
+                <div class="movie-info__poster mg-r-16">
+                    <div class="poster-movie from-lg">
+                        <div class="poster-movie__image">
+                            <figure>
+                                <img [src]="movie.poster_path | noimage" [alt]="movie.title">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-info__details">
+                    <h1 class="h3 mt-3">{{ movie.title }}</h1>
+                    <p class="mb-3"> <span>{{ movie.original_title }}</span></p>
+
+                    <div class="col">
+                        <div class="col-xs-8 col-md-8">
+                            <star-rating [value]="movie.vote_average" 
+                                [totalstars]="10"
+                                checkedcolor="yellow" 
+                                uncheckedcolor="grey" 
+                                size="16px" 
+                                [readonly]="true"></star-rating>
+
+                            <p class="rate">
+                                <span>{{ movie.vote_average }} pts</span> / de 10
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <p>Año: {{ movie.release_date | date: 'YYYY' }} | Duración: {{ movie.runtime}} minutos.</p>
+                    </div>
+                    <div class="page-description mb-4">
+                        <p>Sinopsis: <br> {{ movie.overview }}</p>
+                    </div>
+                    <div class="mb-3 tags-genres">
+                        <div class="mb-3" *ngFor="let genres of movie.genres">
+                            <a class="tags-genres__item">{{ genres.name }}</a>
+                        </div>
+                    </div>
+                    <div class="row mt-3 mb-4">
+                        <div class="col">
+                            <div class="trailer modalshow" youtube="rixO-vZR__g">
+                                <p>VER TRAILER</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button (click)="goBack()" class="btn btn-outline-info">Rregresar</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="card-full__cover" [src]="movie.backdrop_path | noimage">
+</div>
+

@@ -5,8 +5,7 @@ import { MovieComponent } from './movie/movie.component';
 import { SearchComponent } from './search/search.component';
 import { SharedModule } from '@shared/shared.module';
 import { RatingModule } from 'ng-starrating';
-
-
+import { PipesModule } from '@pipes/pipes.module';
 
 
 @NgModule({
@@ -18,7 +17,8 @@ import { RatingModule } from 'ng-starrating';
   imports: [
     CommonModule,
     SharedModule,
-    RatingModule
+    RatingModule,
+    PipesModule
   ]
 })
 export class PagesModule { }

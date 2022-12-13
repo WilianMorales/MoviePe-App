@@ -19,7 +19,10 @@ html {
 
 body {
     font-family: 'RocknRoll One', sans-serif;
-    background-color: #14161E;
+    background-color: #020615;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5 {

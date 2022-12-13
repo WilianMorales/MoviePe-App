@@ -1,0 +1,136 @@
+.mg-r-16 {
+    margin-right: 1rem !important;
+}
+
+.movie-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+        display: flex;
+        z-index: 2;
+        flex-direction: column;
+        padding: 5rem 1.5rem 2rem 1.5rem;
+    }
+
+    &__poster {
+        width: 100%;
+    }
+
+    &__details {
+        width: 100%;
+        
+        p {
+            color: #adb5bd;
+        }
+
+        .rate span {
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 400;
+        }
+    }
+
+    &:after {
+        background: linear-gradient(to bottom,rgba(8, 15, 40, 0.39) 0%,rgb(2, 6, 21) 100%);
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .card-full__cover {
+        opacity: 1;
+    }
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+
+.poster-movie {
+    height: 100%;
+    position: relative;
+
+    &__image {
+        position: relative;
+        padding-top: 143.33333333333334%;
+        overflow: inherit;
+    }
+
+    &__image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        border-radius: 3px;
+    }
+}
+
+.tags-genres {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        padding: 2px 6px;
+        border-radius: 5px;
+        margin-right: 8px;
+        color: #fff;
+        border: 1px solid #bd4c5f;
+        font-size: .875rem;
+        text-decoration: none;
+    }
+}
+
+.card-full__cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .65;
+    object-fit: cover;
+}
+
+@media (min-width: 992px) {
+    
+    .movie-info {
+
+        &__container {
+            flex-direction: row;
+        }
+
+        &__poster {
+            width: 35%;
+        }
+
+        &__details {
+            width: 70%;
+        }
+    }
+}
+
+@media (max-width: 580px) {
+    .page-description {
+        max-height: 150px;
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .from-lg {
+        display: none;
+    }
+}
