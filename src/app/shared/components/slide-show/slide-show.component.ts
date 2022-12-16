@@ -19,6 +19,11 @@ export class SlideShowComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.mySwiper = new SwiperCore('.swiper', {
       loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      spaceBetween: 30
     })
   }
 

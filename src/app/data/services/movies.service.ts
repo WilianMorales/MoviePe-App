@@ -1,7 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CreditsResponse } from '@interfaces/credits.interfaces';
+import { Cast, CreditsResponse } from '@interfaces/credits.interfaces';
 import { MovieDetailsResponse } from '@interfaces/movie-details.interface';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap} from 'rxjs/operators';
@@ -57,7 +57,7 @@ export class MoviesService {
     return this.http.get<MoviesResponse>(`${this.baseUrl}/search/movie`, {
       params
     }).pipe(
-      map((res) => res.results)
+      map((res) => res.results.filter(movie => movie.poster_path !== null))
     );
   }
 
@@ -69,7 +69,7 @@ export class MoviesService {
     );
   }
 
-  getMovieCredits(id: string) {
+  getMovieCredits(id: string) : Observable<Cast[]> {
     return this.http.get<CreditsResponse>(`${this.baseUrl}/movie/${id}/credits`, {
       params: this.params
     }).pipe(

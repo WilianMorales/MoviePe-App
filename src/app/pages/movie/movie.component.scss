@@ -64,6 +64,7 @@
     position: relative;
 
     &__image {
+        height: 500px;
         position: relative;
         padding-top: 143.33333333333334%;
         overflow: inherit;
@@ -123,6 +124,11 @@
 }
 
 @media (max-width: 580px) {
+    .movie-info {
+        &__container {
+            padding: 5rem 1.5rem 2rem 1.5rem;
+        }
+    }
     .page-description {
         max-height: 150px;
         overflow-x: auto;

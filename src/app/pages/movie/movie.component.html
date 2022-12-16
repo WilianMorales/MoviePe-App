@@ -1,5 +1,5 @@
 
-<div class="movie-info" *ngIf="movie">
+<div class="movie-info animated fadeIn" *ngIf="movie">
     <div class="container">
         <div class="movie-container">
             <div class="movie-info__container">
@@ -61,3 +61,12 @@
     <img class="card-full__cover" [src]="movie.backdrop_path | noimage">
 </div>
 
+<div class="container mt-3 mb-3 animated fadeIn">
+    <div class="col">
+        <h2 class="mb-3">Reparto:</h2>
+        <hr/>
+    </div>
+    <div class="col" *ngIf="credits.length > 0">
+        <app-credits-slideshow [credits]="credits"></app-credits-slideshow>
+    </div>
+</div>

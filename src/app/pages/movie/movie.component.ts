@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { MovieDetailsResponse } from '@interfaces/movie-details.interface';
 import { MoviesService } from '@services/movies.service';
 import { Cast } from '@interfaces/credits.interfaces';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-movie',
@@ -13,7 +14,7 @@ import { Cast } from '@interfaces/credits.interfaces';
 export class MovieComponent implements OnInit {
 
   movie?: MovieDetailsResponse;
-  credits?: Cast[];
+  credits: Cast[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,20 +26,19 @@ export class MovieComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params.id;
 
-    this.movieService.getMovieDetails(id)
-      .subscribe(movies => {
-        if (!movies) {
-          this.router.navigateByUrl('/home')
-          return;
-        }
-        this.movie = movies;
-      });
+    combineLatest([
+      this.movieService.getMovieDetails(id),
+      this.movieService.getMovieCredits(id)
+    ]).subscribe(([movies, cast]) => {
 
-    this.movieService.getMovieCredits(id)
-      .subscribe(cast => {
-        this.credits = cast;
-      });
+      if (!movies) {
+        this.router.navigateByUrl('/home')
+        return;
+      }
 
+      this.movie = movies;
+      this.credits = cast.filter(actor => actor.profile_path !== null);
+    });
   }
 
   goBack(): void {

@@ -7,19 +7,24 @@ import { PipesModule } from '@pipes/pipes.module';
 import { RouterModule } from '@angular/router';
 import { MovieCardGridComponent } from './components/movie-card-grid/movie-card-grid.component';
 import { RatingModule } from 'ng-starrating';
+import { CreditsSlideshowComponent } from './components/credits-slideshow/credits-slideshow.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SlideShowComponent,
-    MovieCardGridComponent
+    MovieCardGridComponent,
+    CreditsSlideshowComponent,
+    ScrollToTopComponent
   ],
   exports: [
     NavbarComponent,
     SlideShowComponent,
-    MovieCardGridComponent
-
+    MovieCardGridComponent,
+    CreditsSlideshowComponent,
+    ScrollToTopComponent
   ],
   imports: [
     CommonModule,

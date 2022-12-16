@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
 
   texto: string = '';
   movies: Movie[] = [];
+  totalMovies: number = 0;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,8 +28,10 @@ export class SearchComponent implements OnInit {
         this.moviesService.searchMovies(params.texto)
           .subscribe( movies => {
             this.movies = movies
+            this.totalMovies = movies.length;
           })
-      })
+
+      })    
   }
 
 }

@@ -1,0 +1,13 @@
+<swiper
+    [slidesPerView]="4"
+    [spaceBetween]="15"
+    [freeMode]="true">
+    <ng-container *ngFor="let actor of credits">
+      <ng-template swiperSlide class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img [src]="actor.profile_path! | noimage" [alt]="actor.name" class="img-thumbnail" />
+            <p class="txt-white txt-center">{{ actor.name }}</p>
+        </div>
+      </ng-template>
+    </ng-container>
+</swiper>
