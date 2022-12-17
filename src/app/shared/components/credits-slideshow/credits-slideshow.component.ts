@@ -24,7 +24,6 @@ export class CreditsSlideshowComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    console.log(this.credits);
   }
 
 }

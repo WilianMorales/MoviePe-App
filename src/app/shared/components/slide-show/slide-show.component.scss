@@ -1,5 +1,5 @@
 .swiper {
-    height: 70vh;
+    height: 450px;
     width: 100%;
 }
 
@@ -10,7 +10,7 @@
 .movie-description {
     background-color: rgba(0, 0, 0, 0.3);
     bottom: 0;
-    padding: 5px 30px;
+    padding: 15px 30px;
     position: absolute;
     width: 100%;
 
@@ -51,6 +51,10 @@
 }
 
 @media (max-width: 580px) {
+    .movie-description{
+        padding: 5px 30px;
+    }
+    
     .swiper-slide{
         background-repeat: no-repeat;
         background-position: center center;

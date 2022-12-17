@@ -1,8 +1,12 @@
 .navbar {
+    padding: 0.5rem 5rem;
     z-index: 1;
 }
 
 @media (max-width : 580px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
     .btn-mobile-lg {
         display: block;
         width: 100%;
