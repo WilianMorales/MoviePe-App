@@ -9,6 +9,8 @@ import { MovieCardGridComponent } from './components/movie-card-grid/movie-card-
 import { RatingModule } from 'ng-starrating';
 import { CreditsSlideshowComponent } from './components/credits-slideshow/credits-slideshow.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { ModalTrailerComponent } from './components/modal-trailer/modal-trailer.component';
+
 
 
 @NgModule({
@@ -17,14 +19,16 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
     SlideShowComponent,
     MovieCardGridComponent,
     CreditsSlideshowComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    ModalTrailerComponent
   ],
   exports: [
     NavbarComponent,
     SlideShowComponent,
     MovieCardGridComponent,
     CreditsSlideshowComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    ModalTrailerComponent
   ],
   imports: [
     CommonModule,

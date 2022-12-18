@@ -16,6 +16,8 @@ export class MovieComponent implements OnInit {
   movie?: MovieDetailsResponse;
   credits: Cast[] = [];
 
+  showModal = false;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private movieService: MoviesService,
@@ -45,4 +47,11 @@ export class MovieComponent implements OnInit {
     this.location.back();
   }
 
+  showTrailer(): void {
+    this.showModal = true;
+  }
+
+  close(): void {
+    this.showModal = false;
+  }
 }

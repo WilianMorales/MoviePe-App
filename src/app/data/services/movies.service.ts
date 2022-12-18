@@ -1,10 +1,11 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cast, CreditsResponse } from '@interfaces/credits.interfaces';
 import { MovieDetailsResponse } from '@interfaces/movie-details.interface';
+import { TrailerResponse, Video } from '@interfaces/trailer-interfaces';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap} from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Movie, MoviesResponse } from '../interfaces/movies.interface';
 
 
@@ -13,7 +14,10 @@ import { Movie, MoviesResponse } from '../interfaces/movies.interface';
 })
 export class MoviesService {
 
-  private baseUrl = 'https://api.themoviedb.org/3';
+  private BASE_URL = 'https://api.themoviedb.org/3';
+  private BASE_URL_YOUTUBE = 'https://www.googleapis.com/youtube/v3/search?&key=';
+  private YOUTUBE_API_KEY = 'AIzaSyBUegJa0wYbC0JX7CG2_gLp_zXii5FcV-w';
+
   private moviePage = 1;
   cargando: boolean = false;
 
@@ -39,7 +43,7 @@ export class MoviesService {
 
     this.cargando = true;
 
-    return this.http.get<MoviesResponse>(`${this.baseUrl}/movie/now_playing`, {
+    return this.http.get<MoviesResponse>(`${this.BASE_URL}/movie/now_playing`, {
       params: this.params
     }).pipe(
       map((res) => res.results),
@@ -54,7 +58,7 @@ export class MoviesService {
 
     const params = { ...this.params, page: 1, query: texto };
 
-    return this.http.get<MoviesResponse>(`${this.baseUrl}/search/movie`, {
+    return this.http.get<MoviesResponse>(`${this.BASE_URL}/search/movie`, {
       params
     }).pipe(
       map((res) => res.results.filter(movie => movie.poster_path !== null))
@@ -62,19 +66,29 @@ export class MoviesService {
   }
 
   getMovieDetails(id: string) {
-    return this.http.get<MovieDetailsResponse>(`${this.baseUrl}/movie/${id}`, {
+    return this.http.get<MovieDetailsResponse>(`${this.BASE_URL}/movie/${id}`, {
       params: this.params
     }).pipe(
-      catchError( err => of(undefined))
+      catchError(err => of(undefined))
     );
   }
 
-  getMovieCredits(id: string) : Observable<Cast[]> {
-    return this.http.get<CreditsResponse>(`${this.baseUrl}/movie/${id}/credits`, {
+  getMovieCredits(id: string): Observable<Cast[]> {
+    return this.http.get<CreditsResponse>(`${this.BASE_URL}/movie/${id}/credits`, {
       params: this.params
     }).pipe(
       map((res) => res.cast),
-      catchError( err => of([]))
+      catchError(err => of([]))
     );
+  }
+
+  getTrailer(title: string) {
+    const trailer = title;
+    /*  const parms = '&part=snippet' + '&maxResults=12&q=' + trailer; */
+    const params = new HttpParams()
+      .set('part', 'snippet')
+      .set('&maxResults', '12')
+      .set('q', trailer)
+    return this.http.get<TrailerResponse>(this.BASE_URL_YOUTUBE + this.YOUTUBE_API_KEY, { params });
   }
 }

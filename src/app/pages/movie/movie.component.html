@@ -1,5 +1,5 @@
 
-<div class="movie-info animated fadeIn" *ngIf="movie">
+<div class="movie-info" *ngIf="movie">
     <div class="container">
         <div class="movie-container">
             <div class="movie-info__container">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="row mt-3 mb-4">
                         <div class="col">
-                            <div class="trailer modalshow" youtube="rixO-vZR__g">
+                            <div class="trailer" (click)="showTrailer()">
                                 <p>VER TRAILER</p>
                             </div>
                         </div>
@@ -53,7 +53,6 @@
                             <button (click)="goBack()" class="btn btn-outline-info">Rregresar</button>
                         </div>
                     </div>
-    
                 </div>
             </div>
         </div>
@@ -61,7 +60,11 @@
     <img class="card-full__cover" [src]="movie.backdrop_path | noimage">
 </div>
 
-<div class="container mt-3 mb-3 animated fadeIn">
+<div *ngIf="showModal">
+    <app-modal-trailer (close)="close()" [movie]="movie"></app-modal-trailer>
+</div>
+
+<div class="container mt-3 mb-3">
     <div class="col">
         <h2 class="mb-3">Reparto:</h2>
         <hr/>
