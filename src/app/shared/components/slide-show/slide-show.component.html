@@ -4,7 +4,9 @@
             class="swiper-slide cursor"
             [ngStyle]="{
                 'background-size': 'cover',
-                'background-image': 'url(https://image.tmdb.org/t/p/w500'+ movie.backdrop_path +')'
+                'background-position': 'center center',
+                'background-repeat': 'no-repeat',
+                'background-image': 'url(https://image.tmdb.org/t/p/original'+ movie.backdrop_path +')'
             }">
             <div class="movie-description">
                 <h4 class="mt-2">{{ movie.title }}</h4>

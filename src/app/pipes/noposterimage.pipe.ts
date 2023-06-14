@@ -1,14 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'noimage'
+  name: 'noposterimage'
 })
-export class NoimagePipe implements PipeTransform {
+export class NoposterimagePipe implements PipeTransform {
 
   transform(imagen: string): string {
 
     if (imagen) {
-      return `https://image.tmdb.org/t/p/w500${imagen}`
+      return `https://image.tmdb.org/t/p/original${imagen}`
     }
     else {
       return './assets/imgs/no-image.jpg'
