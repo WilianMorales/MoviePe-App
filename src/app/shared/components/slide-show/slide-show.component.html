@@ -9,12 +9,16 @@
                 'background-image': 'url(https://image.tmdb.org/t/p/original'+ movie.backdrop_path +')'
             }">
             <div class="movie-description">
-                <h4 class="mt-2">{{ movie.title }}</h4>
-                <p>{{ movie.overview | readmore }} <a (click)="onMovieClick(movie)"  class="btn-readmore cursor">Read more</a></p>
+                <h2 class="display-6 fw-bold mb-3">{{ movie.title }}</h2>
+                <p class="mb-2">{{ movie.overview | readmore }}</p>
+              <div class="d-flex gap-3">
+                <a (click)="onMovieClick(movie)"  class="btn-readmore cursor">Read more</a>
+              </div>
             </div>
         </div>
     </div>
 
-    <div (click)="onSliderPrev()" class="swiper-button-prev"></div>
-    <div (click)="onSliderNext()" class="swiper-button-next"></div>
+    <a (click)="onSliderPrev()" class="btn swiper-button-prev"></a>
+    <a (click)="onSliderNext()" class="btn swiper-button-next"></a>
+
 </div>

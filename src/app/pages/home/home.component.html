@@ -1,12 +1,9 @@
-<div class="container mt-3">
-    <div class="row mt-4" *ngIf="movie.length > 0">
-        <div class="col">
-            <app-slide-show [movies]="moviesSlideShow"></app-slide-show>
-        </div>
-    </div>
-    
-    <h1 class="title-movie mt-4 mb-3 animated fadeIn">Peliculas</h1>
-    
+<app-slide-show *ngIf="movie.length > 0"  class="movies-section" [movies]="moviesSlideShow"></app-slide-show>
+
+<div class="container mt-3 animated fadeIn">
+    <h1 class="title-movie mt-4">Peliculas</h1>
+    <hr/>
+
     <app-movie-card-grid *ngIf="movie.length > 0" [movies]="movie"></app-movie-card-grid>
-    
+
 </div>

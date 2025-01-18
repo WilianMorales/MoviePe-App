@@ -14,7 +14,7 @@
 
 html {
     position  : relative;
-    min-height: 100%;
+    min-height: 100dvh;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
     background-color: #020615;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 h1, h2, h3, h4, h5 {
@@ -30,8 +30,13 @@ h1, h2, h3, h4, h5 {
     color: white;
 }
 
-p , hr {
+p {
     color: white;
+}
+
+hr {
+  border: 1px solid #FF2F28;
+  margin-bottom: 40px;
 }
 
 .cursor {
@@ -58,24 +63,24 @@ p , hr {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-  
+
 .fast {
     -webkit-animation-duration: 0.4s;
     animation-duration: 0.4s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-  
+
 @keyframes fadeIn {
     from {
       opacity: 0;
     }
-  
+
     to {
       opacity: 1;
     }
 }
-  
+
 .fadeIn {
     animation-name: fadeIn;
 }

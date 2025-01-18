@@ -19,11 +19,11 @@
 
                     <div class="col">
                         <div class="col-xs-8 col-md-8">
-                            <star-rating [value]="movie.vote_average" 
+                            <star-rating [value]="movie.vote_average"
                                 [totalstars]="10"
-                                checkedcolor="yellow" 
-                                uncheckedcolor="grey" 
-                                size="16px" 
+                                checkedcolor="yellow"
+                                uncheckedcolor="grey"
+                                size="16px"
                                 [readonly]="true"></star-rating>
 
                             <p class="rate">
@@ -31,7 +31,7 @@
                             </p>
                         </div>
                     </div>
-    
+
                     <div class="col">
                         <p>Año: {{ movie.release_date | date: 'YYYY' }} | Duración: {{ movie.runtime}} minutos.</p>
                     </div>
@@ -64,7 +64,7 @@
     <app-modal-trailer (close)="close()" [movie]="movie"></app-modal-trailer>
 </div>
 
-<div class="container mt-3 mb-3">
+<div class="container mt-3 mb-3 animated fadeIn">
     <div class="col">
         <h2 class="mb-3">Reparto:</h2>
         <hr/>

@@ -3,6 +3,13 @@
     z-index: 1;
 }
 
+.btn-outline-danger {
+  color: #FF2F28;
+  &:hover {
+    color: white;
+  }
+}
+
 @media (max-width : 580px) {
     .navbar {
         padding: 0.5rem 1rem;
