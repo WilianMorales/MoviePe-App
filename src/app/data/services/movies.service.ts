@@ -16,7 +16,7 @@ export class MoviesService {
 
   private BASE_URL = 'https://api.themoviedb.org/3';
   private BASE_URL_YOUTUBE = 'https://www.googleapis.com/youtube/v3/search?&key=';
-  private YOUTUBE_API_KEY = 'AIzaSyBUegJa0wYbC0JX7CG2_gLp_zXii5FcV-w';
+  private YOUTUBE_API_KEY = 'AIzaSyAVPJ2zvsBCs23Xlgsh5zxXwxBMtNG0Bco';
 
   private moviePage = 1;
   cargando: boolean = false;
