@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  YOUTUBE_API_KEY: 'tu_clave_de_api',
   production: false
 };
 

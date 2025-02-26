@@ -65,11 +65,9 @@
 </div>
 
 <div class="container mt-3 mb-3 animated fadeIn">
-    <div class="col">
+    <div class="col" *ngIf="credits.length > 0">
         <h2 class="mb-3">Reparto:</h2>
         <hr/>
-    </div>
-    <div class="col" *ngIf="credits.length > 0">
         <app-credits-slideshow [credits]="credits"></app-credits-slideshow>
     </div>
 </div>

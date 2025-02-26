@@ -7,6 +7,7 @@ import { TrailerResponse, Video } from '@interfaces/trailer-interfaces';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Movie, MoviesResponse } from '../interfaces/movies.interface';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -16,7 +17,7 @@ export class MoviesService {
 
   private BASE_URL = 'https://api.themoviedb.org/3';
   private BASE_URL_YOUTUBE = 'https://www.googleapis.com/youtube/v3/search?&key=';
-  private YOUTUBE_API_KEY = 'AIzaSyBUegJa0wYbC0JX7CG2_gLp_zXii5FcV-w';
+  private YOUTUBE_API_KEY = environment.YOUTUBE_API_KEY;
 
   private moviePage = 1;
   cargando: boolean = false;
@@ -46,7 +47,7 @@ export class MoviesService {
     return this.http.get<MoviesResponse>(`${this.BASE_URL}/movie/now_playing`, {
       params: this.params
     }).pipe(
-      map((res) => res.results),
+      map((res) => res.results.filter(movie => movie.poster_path !== null)),
       tap(() => {
         this.moviePage += 1;
         this.cargando = false;
